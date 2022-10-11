@@ -1,0 +1,75 @@
+<form [formGroup]="formClient" novalidate> 
+    <div class="mb-3">
+        <label for="userName" class="form-label">User Name</label>
+        <input type="text" class="form-control" name="userName" placeholder="Escribe user name"
+        required id="userName" formControlName="userName" >
+
+        <div *ngIf="formClient.controls['userName'].invalid && (formClient.controls['userName'].dirty || formClient.controls['userName'].touched)"
+            class="text-danger">
+            <div *ngIf="formClient.controls['userName'].errors['required'] || 
+                        formClient.controls['userName'].errors['whitespace']" 
+                class="text-danger">
+               Error en el campo
+            </div>
+        </div>
+
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" class="form-control" name="firstName" placeholder="Escribe tu first Name"
+        required id="firstName" formControlName="firstName" >
+
+        <div *ngIf="formClient.controls['firstName'].invalid && (formClient.controls['firstName'].dirty || formClient.controls['firstName'].touched)"
+            class="text-danger">
+            <div *ngIf="formClient.controls['firstName'].errors['required'] || 
+                        formClient.controls['firstName'].errors['whitespace'] ||
+                        formClient.controls['firstName'].errors['pattern']"
+                class="text-danger">
+               Error en el campo
+            </div>
+        </div>
+
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" class="form-control" name="lastName" placeholder="Escribe tu lastName"
+        required id="lastName" formControlName="lastName">
+
+        <div *ngIf="formClient.controls['lastName'].invalid && (formClient.controls['lastName'].dirty || formClient.controls['lastName'].touched)"
+            class="text-danger">
+            <div *ngIf="formClient.controls['lastName'].errors['required'] || 
+                        formClient.controls['lastName'].errors['whitespace'] ||
+                        formClient.controls['lastName'].errors['pattern']"
+                class="text-danger">
+               Error en el campo
+            </div>
+        </div>
+
+        <label for="age" class="form-label">Age</label>
+        <input type="number" class="form-control" name="age" placeholder="Escribe tu age"
+        required id="age" formControlName="age">
+
+        <div *ngIf="formClient.controls['age'].invalid && (formClient.controls['age'].dirty || formClient.controls['age'].touched)"
+            class="text-danger">
+            <div *ngIf="formClient.controls['age'].errors['required'] ||                         
+                        formClient.controls['age'].errors['pattern']"
+                class="text-danger">
+               Error en el campo
+            </div>
+        </div>
+
+        <label for="career" class="form-label">Career</label>
+        <input type="text" class="form-control" name="career" placeholder="Escribe career"
+        required id="career" formControlName="career">
+
+        <div *ngIf="formClient.controls['career'].invalid && (formClient.controls['career'].dirty || formClient.controls['career'].touched)"
+            class="text-danger">
+            <div *ngIf="formClient.controls['career'].errors['required'] || 
+                        formClient.controls['career'].errors['whitespace'] ||
+                        formClient.controls['career'].errors['pattern']"
+                class="text-danger">
+               Error en el campo
+            </div>
+        </div>
+
+        <br>
+        <button (click)="addStudent()" *ngIf="student.id==0" class="btn btn-primary">Add</button>
+        <button (click)="UpdateStudent()" *ngIf="student.id!=0" class="btn btn-primary">Update</button>
+    </div>
+</form>
